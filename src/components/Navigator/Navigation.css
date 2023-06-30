@@ -1,0 +1,26 @@
+nav {
+  padding: 10px;
+  width: 50%;
+  background-color: rgb(197, 182, 182);
+}
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: space-around;
+}
+nav ul a {
+  padding: 5px;
+  font-size: 24px;
+  cursor: pointer;
+  border-radius: 10px;
+  text-decoration: none;
+}
+nav ul li:nth-child(1) a {
+  background-color: rgba(60, 79, 53, 0.5);
+}
+nav ul li:nth-child(2) a {
+  background-color: rgb(189, 170, 196);
+}
+nav ul li:nth-child(3) a {
+  background-color: rgba(78, 104, 125, 0.3);
+}
