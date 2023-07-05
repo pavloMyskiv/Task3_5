@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
   userList: [],
-  selectedUserId: 3,
+  selectedUserId: null,
 };
 
 const userListSlice = createSlice({
