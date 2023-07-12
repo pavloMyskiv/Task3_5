@@ -19,15 +19,19 @@ export const todoAPI = createApi({
       }),
       async onQueryStarted({ id, ...patch }, { dispatch, queryFulfilled }) {
         const patchResult = dispatch(
-          todoAPI.util.updateQueryData('getTodos', patch.userId, (draft) => {
-            const updatedTodosList = draft.map((todo) => {
-              if (todo.id === id) {
-                return { ...todo, ...patch };
-              }
-              return todo;
-            });
-            return updatedTodosList;
-          })
+          todoAPI.util.updateQueryData(
+            'getTodos',
+            `${patch.userId}`,
+            (draft) => {
+              const updatedTodosList = draft.map((todo) => {
+                if (todo.id === id) {
+                  return { ...todo, ...patch };
+                }
+                return todo;
+              });
+              return updatedTodosList;
+            }
+          )
         );
         try {
           await queryFulfilled;
@@ -43,7 +47,7 @@ export const todoAPI = createApi({
       }),
       async onQueryStarted({ id, userId }, { dispatch, queryFulfilled }) {
         const patchResult = dispatch(
-          todoAPI.util.updateQueryData('getTodos', userId, (draft) => {
+          todoAPI.util.updateQueryData('getTodos', `${userId}`, (draft) => {
             const updatedTodosList = draft.filter(
               (todoItem) => todoItem.id !== id
             );

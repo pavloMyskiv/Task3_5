@@ -1,16 +1,16 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useParams } from 'react-router-dom';
 import './PostList.css';
 import { useGetPostsQuery } from '../../store/AppAPI/postAPI.js';
 
 export const PostList = () => {
-  const selectedUserId = useSelector((state) => state.userList.selectedUserId);
+  const { id } = useParams();
   const {
     data: postsList = [],
     isLoading,
     error,
     isError,
-  } = useGetPostsQuery(selectedUserId);
+  } = useGetPostsQuery(id);
   if (isLoading) {
     return (
       <div className="user_list">

@@ -1,4 +1,5 @@
 import React from 'react';
+import { useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import './TodoList.css';
 import {
@@ -11,15 +12,15 @@ import { setEditingTodoId } from '../../store/slices/todoListSlice';
 export const TodoList = () => {
   const [updateTodoMutation] = useUpdateTodoMutation();
   const [deleteTodoMutation] = useDeleteTodoMutation();
+  const { id } = useParams();
   const dispatch = useDispatch();
-  const selectedUserId = useSelector((state) => state.userList.selectedUserId);
   const editingTodoId = useSelector((state) => state.todoList.editingTodoId);
   const {
     data: todosList = [],
     isLoading,
     error,
     isError,
-  } = useGetTodosQuery(selectedUserId);
+  } = useGetTodosQuery(id);
 
   const handleComplete = async (todo) => {
     const updatedTodo = { ...todo, completed: !todo.completed };
