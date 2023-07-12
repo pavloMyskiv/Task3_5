@@ -2,17 +2,12 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
   userList: [],
-  selectedUserId: null,
 };
 
 const userListSlice = createSlice({
   name: 'userList',
   initialState,
-  reducers: {
-    selectUser: (state, action) => {
-      state.selectedUserId = action.payload;
-    },
-  },
+  reducers: { EmptyReducer: (state) => state },
 });
 export const { selectUser } = userListSlice.actions;
 export default userListSlice.reducer;
