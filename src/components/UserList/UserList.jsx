@@ -1,8 +1,7 @@
 import React from 'react';
 import './UserList.css';
 import { useGetUsersQuery } from '../../store/AppAPI/userAPI.js';
-import { Outlet, Link } from 'react-router-dom';
-import { AppRoutes } from '../../routing/routing';
+import { Link } from 'react-router-dom';
 
 export const UserList = () => {
   const {
@@ -42,7 +41,6 @@ export const UserList = () => {
         <h3>React App</h3>
       </header>
       <div className="user_list">
-        <Outlet></Outlet>
         <h1>Users</h1>
         {usersList.map((user) => (
           <div key={user.id} className="user">
@@ -52,7 +50,7 @@ export const UserList = () => {
                 <span>Name:</span> {user.name}
               </p>
             </div>
-            <Link to={`${AppRoutes.User}/${user.id}`}>
+            <Link to={`/user/${user.id}`}>
               <button>Select</button>
             </Link>
           </div>

@@ -8,7 +8,7 @@ export const PostList = () => {
   const {
     data: postsList = [],
     isLoading,
-    error,
+    error, 
     isError,
   } = useGetPostsQuery(id);
   if (isLoading) {

@@ -1,7 +1,6 @@
 import React from 'react';
 import { NavLink, useParams } from 'react-router-dom';
 import './Navigation.css';
-import { AppRoutes } from '../../routing/routing';
 
 export const Navigation = () => {
   const { id } = useParams();
@@ -10,20 +9,16 @@ export const Navigation = () => {
       <h3>React App</h3>
       <ul>
         <li>
-          <NavLink to={`${AppRoutes.User}/${id}/${AppRoutes.TodoList}`}>
-            Todos
-          </NavLink>
+          <NavLink to={`/user/${id}/todoList`}>Todos</NavLink>
         </li>
         <li>
-          <NavLink to={`${AppRoutes.User}/${id}/${AppRoutes.PostList}`}>
-            Posts
-          </NavLink>
+          <NavLink to={`/user/${id}/postlist`}>Posts</NavLink>
         </li>
         <li>
-          <NavLink to={`${AppRoutes.User}/${id}`}>User</NavLink>
+          <NavLink to={`/user/${id}`}>User</NavLink>
         </li>
         <li>
-          <NavLink to={AppRoutes.UserList}>Lock out</NavLink>
+          <NavLink to={`/`}>Lock out</NavLink>
         </li>
       </ul>
     </nav>

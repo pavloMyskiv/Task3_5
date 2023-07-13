@@ -5,11 +5,11 @@ import TodoList from '../components/TodoList';
 import UserList from '../components/UserList';
 import UserPage from '../components/UserPage';
 
-export const AppRoutes = {
-  PostList: 'postList',
-  TodoList: 'todoList',
+const AppRoutes = {
+  PostList: '/user/:id/postList',
+  TodoList: '/user/:id/todoList',
   UserList: '/',
-  User: '/user',
+  User: '/user/:id',
 };
 
 export const routing = createBrowserRouter([
@@ -18,13 +18,15 @@ export const routing = createBrowserRouter([
     path: '/user',
     element: <Layout />,
     children: [
-      { path: `${AppRoutes.User}/:id`, element: <UserPage /> },
+      { path: AppRoutes.User,
+        element: <UserPage />,
+        index: true },
       {
-        path: `${AppRoutes.User}/:id/${AppRoutes.PostList}`,
+        path: AppRoutes.PostList,
         element: <PostList />,
       },
       {
-        path: `${AppRoutes.User}/:id/${AppRoutes.TodoList}`,
+        path: AppRoutes.TodoList,
         element: <TodoList />,
       },
     ],
